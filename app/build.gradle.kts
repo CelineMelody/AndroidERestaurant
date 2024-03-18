@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "fr.isen.paulin.androiderestaurant"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "fr.isen.paulin.androiderestaurant"
-        minSdk = 24
-        targetSdk = 33
+        minSdk = 25
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -56,6 +56,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.wear.compose:compose-material3:1.0.0-alpha19")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
