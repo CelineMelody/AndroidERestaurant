@@ -1,4 +1,28 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="home_welcome">Bienvenue\nchez</string>
+    <string name="home_welcome_app_name">DroidRestaurant</string>
+    <string name="home_starters">CategoryActivity</string>
+    <string name="home_dish">DetailActivity</string>
+    <string name="home_desert">CategoryActivity</string>
     <string name="title_activity_category">CategoryActivity</string>
+
+    <string-array name="fake_starters">
+        <item> Salade 1 </item>
+        <item> Salade 2 </item>
+        <item> Salade 3 </item>
+    </string-array>
+
+    <string-array name="fake_dish">
+        <item> Dish 1 </item>
+        <item> Dish 2 </item>
+        <item> Dish 3 </item>
+    </string-array>
+
+    <string-array name="fake_desert">
+        <item> Desert 1 </item>
+        <item> Desert 2 </item>
+        <item> Desert 3 </item>
+    </string-array>
 </resources>
