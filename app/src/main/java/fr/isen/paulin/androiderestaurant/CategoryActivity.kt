@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
@@ -72,6 +73,7 @@ class CategoryActivity : ComponentActivity() {
         startActivity(intent)
     }
 
+
     //maj l'etat de notre composant de facon asynchrone avec state et remember
     private fun fetchData(category: String, items: MutableList<Items>) {
         val url = "http://test.api.catering.bluecodegames.com/menu"
@@ -117,11 +119,24 @@ fun CategoryComponent(category: String, dishes: List<Items>, onDishClicked: (Ite
                     AsyncImage(
                         model = dish.images.last(),
                         contentDescription = null,
-                    )
-                    Text(text = dish.nameFr ?: "",
                         Modifier
-                            .padding(0.dp, 8.dp)
-                            .clickable { onDishClicked(dish) })
+                            .size(100.dp)
+                            //.clickable { onDishClicked(dish)
+                    )
+                    Column {
+                        Text(text = dish.nameFr ?: "",
+                            Modifier
+                                .padding(0.dp, 8.dp)
+                                .clickable { onDishClicked(dish) }
+                        )
+                        Text(
+                            "${dish.prices.first().price} €",
+                            Modifier
+                                .padding(0.dp, 8.dp)
+                                .clickable { onDishClicked(dish) }
+                        )
+                    }
+
 
                 }
                 //CoilImage(imageUrl = dish.imageUrl, modifier = Modifier.size(50.dp))

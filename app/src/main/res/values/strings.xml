@@ -25,4 +25,5 @@
         <item> Desert 2 </item>
         <item> Desert 3 </item>
     </string-array>
+    <string name="title_activity_panier">PanierActivity</string>
 </resources>
