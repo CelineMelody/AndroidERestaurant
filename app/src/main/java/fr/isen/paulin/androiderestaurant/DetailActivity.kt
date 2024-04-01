@@ -1,6 +1,7 @@
 package fr.isen.paulin.androiderestaurant
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,9 +16,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -86,7 +93,12 @@ fun DishDetailScreen(dish: Items) {
                 onIncrease = { if (quantity.value < 99) quantity.value++ },
                 onDecrease = { if (quantity.value > 1) quantity.value-- })
         }
-
+        Row(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
         Button(
             onClick = {
                 val panierItem = PanierItem(
@@ -98,12 +110,24 @@ fun DishDetailScreen(dish: Items) {
                 showConfirmationDialog.value = true
             },
             modifier = Modifier
-                .align(Alignment.BottomCenter)
+                //.align(Alignment.BottomCenter)
                 .padding(bottom = 16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Orange)
         ) {
             Text("TOTAL: ${quantity.value * pricePerDish} €")
         }
+        // Spacer to add some space between the button and the icon
+        Spacer(modifier = Modifier.width(20.dp))
+
+        // Shopping Cart IconButton
+        IconButton(onClick = {
+            // Navigate to PanierActivity
+            val intent = Intent(context, PanierActivity::class.java)
+            context.startActivity(intent)
+        }) {
+            Icon(Icons.Filled.ShoppingCart, contentDescription = "Go to cart", tint = Color.White)
+        }
+    }
 
         if (showConfirmationDialog.value) {
             AlertDialog(onDismissRequest = { showConfirmationDialog.value = false },
@@ -147,7 +171,9 @@ fun QuantityCounter(quantity: Int, onIncrease: () -> Unit, onDecrease: () -> Uni
             onClick = onDecrease,
             modifier = Modifier.size(48.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Orange)
-        ) { Text("-") }
+        ) { Icon(Icons.Filled.Remove, contentDescription = "Decrease", tint = Color.White)
+            //Text("-")
+            }
         Spacer(modifier = Modifier.width(16.dp))
         Text(text = quantity.toString(), modifier = Modifier.align(Alignment.CenterVertically))
         Spacer(modifier = Modifier.width(16.dp))
@@ -155,7 +181,10 @@ fun QuantityCounter(quantity: Int, onIncrease: () -> Unit, onDecrease: () -> Uni
             onClick = onIncrease,
             modifier = Modifier.size(48.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Orange)
-        ) { Text("+") }
+        ) {
+            Icon(Icons.Filled.Add, contentDescription = "Increase", tint = Color.White)
+            //Text("+" )
+        }
     }
 }
 

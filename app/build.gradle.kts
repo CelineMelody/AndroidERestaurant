@@ -69,5 +69,6 @@ dependencies {
     implementation ("com.android.volley:volley:1.2.1")
     implementation ("com.google.code.gson:gson:2.8.5")
     implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation ("androidx.compose.material:material-icons-extended:1.0.0")
 
 }
