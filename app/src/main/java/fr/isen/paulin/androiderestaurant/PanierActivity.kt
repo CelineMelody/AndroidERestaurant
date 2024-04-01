@@ -1,4 +1,4 @@
-package fr.isen.paulin.androiderestaurant.ui.theme
+package fr.isen.paulin.androiderestaurant
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

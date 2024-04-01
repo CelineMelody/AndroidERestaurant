@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.theme.PanierActivity"
+            android:name=".PanierActivity"
             android:exported="false"
             android:label="@string/title_activity_panier"
             android:theme="@style/Theme.AndroidERestaurant" />

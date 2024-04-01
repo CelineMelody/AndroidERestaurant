@@ -21,6 +21,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -103,12 +106,15 @@ class CategoryActivity : ComponentActivity() {
 
 @Composable
 fun CategoryComponent(category: String, dishes: List<Items>, onDishClicked: (Items) -> Unit) {
+    val playfairDisplay = FontFamily(Font(R.font.playfairdisplaybold))
+    val merriweather = FontFamily(Font(R.font.merriweathersansregular))
     Column {
         Text(
-            text = "Hello $category!",
+            text = "~ $category ~",
             textAlign = TextAlign.Center,
-            fontSize = 24.sp,
-            color = MaterialTheme.colorScheme.primary,
+            fontSize = 30.sp,
+            color = Color(0xFFFF8000),
+            fontFamily = merriweather,
             modifier = Modifier
                 .padding(32.dp)
                 .fillMaxWidth()
@@ -121,6 +127,9 @@ fun CategoryComponent(category: String, dishes: List<Items>, onDishClicked: (Ite
                         contentDescription = null,
                         Modifier
                             .size(100.dp)
+                            //.clip(CircleShape)
+                            //.clip(RoundedCornerShape(10.dp))
+                            .padding(end = 16.dp)
                             //.clickable { onDishClicked(dish)
                     )
                     Column {

@@ -1,5 +1,37 @@
 package fr.isen.paulin.androiderestaurant.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
+import androidx.compose.runtime.Composable
+
+@Composable
+fun AndroidERestaurantTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) {
+        darkColorScheme(
+            background = DarkBackground,
+            onBackground = DarkText
+        )
+    } else {
+        lightColorScheme(
+            background = LightBackground,
+            onBackground = LightText
+        )
+    }
+
+    MaterialTheme(
+        colorScheme = colors,
+        typography = Typography,
+        //shapes = androidx.wear.compose.material3.Shapes,
+        content = content
+    )
+}
+/*package fr.isen.paulin.androiderestaurant.ui.theme
+
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -67,4 +99,4 @@ fun AndroidERestaurantTheme(
             typography = Typography,
             content = content
     )
-}
+}*/
